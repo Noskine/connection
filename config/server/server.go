@@ -29,3 +29,8 @@ func (ht *HttpI) Listen(port int, message string) {
 		panic(err.Error())
 	}
 }
+
+func (ht *HttpI) loadingFileStatic() {
+	fs := http.FileServer(http.Dir("static"))
+    ht.mux.Handle("/static/", http.StripPrefix("/static/", fs))
+}

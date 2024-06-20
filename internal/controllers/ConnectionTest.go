@@ -19,7 +19,7 @@ func (h *ConnectionTestController) ServeHTTP(w http.ResponseWriter, r *http.Requ
 }
 
 func (h *ConnectionTestController) Get(w http.ResponseWriter, r *http.Request) {
-	tmpl, err := template.ParseFiles("internal/views/index.html")
+	tmpl, err := template.ParseFiles("pkg/views/index.html")
 	if err != nil {
 		w.WriteHeader(http.StatusInternalServerError)
 		fmt.Fprint(w, "Internal Server Error")
