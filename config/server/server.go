@@ -21,7 +21,7 @@ func (ht *HttpI) Listen(port int, message string) {
 
 	Sport := fmt.Sprintf(":%v", port)
 	logger :=  fmt.Sprintf("%s :: ==> http://localhost%v", message, Sport)
-	
+
 	log.Println(logger)
 
 	err := http.ListenAndServe(Sport, ht.mux)
