@@ -12,4 +12,12 @@ type JobsDtoOutput struct {
 	Description    string    `json:"description"`
 	Company        string    `json:"company" validate:"required"`
 	JobOpeningDate time.Time `json:"job_opening_date" validate:"required"`
+	Open           bool      `json:"open"`
+}
+
+type JobsDtoInput struct {
+	Title          string    `json:"title" validate:"required,min=5"`
+	Description    string    `json:"description"`
+	Company        string    `json:"company" validate:"required"`
+	Open           bool      `json:"open"`
 }
