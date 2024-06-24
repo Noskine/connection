@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  application:
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      DB_USER: "admin"
+      DB_PASSWORD: "T5urIIcFZ47nyuvKCkk8JCnA0WzmA216EHFYPTf0nPCqJQsJvU"
+      DB_NAME: "testdb"
+      DB_HOST: "db"
+    depends_on:
+      - db
+
+  database:
+    image: postgres
+    environment:
+      POSTGRES_USER: "admin"
+      POSTGRES_PASSWORD: "T5urIIcFZ47nyuvKCkk8JCnA0WzmA216EHFYPTf0nPCqJQsJvU"
+      POSTGRES_DB: "testdb"
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
